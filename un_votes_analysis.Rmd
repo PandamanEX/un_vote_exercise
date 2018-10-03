@@ -169,6 +169,8 @@ no_by_topic <- df %>%
                   `United States` = mean(`United States` == 3)) %>%
                   gather(country, percentage_no, China:`United States`)
 
+no_by_topic_country <- no_by_topic %>% spread(country, percentage_no)
+
 ggplot(no_by_topic, aes(x=year, y=percentage_no, color=topic)) + 
   #geom_line() + 
   geom_smooth(se=F) +
@@ -186,5 +188,6 @@ For simplicity, I outputted those CSV files because I installed the tableau on m
 ```{r}
 write.csv(df, file='df.csv')
 write.csv(no_by_topic, file='no_by_topic.csv')
+write.csv(no_by_topic_country, file='no_by_topic_country.csv')
 ```
 
