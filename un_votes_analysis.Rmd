@@ -184,22 +184,24 @@ From the graph above we can see that the UK and France have a similar pattern of
 China has a relatively low percentage of voting 'no' across all topics.
 The US has a strong increasing trend of voting 'no' after the 1970's.
 
+Correlation Matrix
+Lets produce the correlation matrix of the permanent members.
+```{r}
+cor_mat <- tidy(cor(no_by_year_country[, c('China', 'France', 'Russia', 'United Kingdom', 'United States')]))
+cor_mat %>% gather(country2, correlation, China:United.States)
+
+```
+
 Output CSV files for tableau:
 For simplicity, I outputted those CSV files because I installed the tableau on my laptop (Windows), but this R Notebook was created on my desktop computer which is running on Ubuntu (unfortunately there is no Linux version of tableau public)
 
 ```{r}
 write.csv(df, file='df.csv')
 write.csv(no_by_topic, file='no_by_topic.csv')
-write.csv(no_by_topic_country, file='no_by_topic_country.csv')
-write.csv(no_by_year, file='no_by_year.csv')
-write.csv(no_by_year_country, file='no_by_year_country.csv')
+write.csv(cor_mat, file='cor_mat.csv')
 ```
 
-Testing
-```{r}
-cor(no_by_year_country[, c('China', 'France', 'Russia', 'United Kingdom', 'United States')])
 
-```
 
 
 
