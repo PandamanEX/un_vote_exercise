@@ -1,6 +1,26 @@
-"",".rownames","China","France","Russia","United.Kingdom","United.States"
-"1","China",1,-0.188397317507198,0.630373121361879,-0.222233672757712,-0.345957356491416
-"2","France",-0.188397317507198,1,0.047489586514196,0.813980190430494,-0.165152795016917
-"3","Russia",0.630373121361879,0.047489586514196,1,0.19923029161316,-0.490910114365883
-"4","United Kingdom",-0.222233672757712,0.813980190430494,0.19923029161316,1,-0.223713527747764
-"5","United States",-0.345957356491416,-0.165152795016917,-0.490910114365883,-0.223713527747764,1
+"",".rownames","country2","correlation"
+"1","China","China",1
+"2","France","China",-0.188397317507198
+"3","Russia","China",0.630373121361879
+"4","United Kingdom","China",-0.222233672757712
+"5","United States","China",-0.345957356491416
+"6","China","France",-0.188397317507198
+"7","France","France",1
+"8","Russia","France",0.047489586514196
+"9","United Kingdom","France",0.813980190430494
+"10","United States","France",-0.165152795016917
+"11","China","Russia",0.630373121361879
+"12","France","Russia",0.047489586514196
+"13","Russia","Russia",1
+"14","United Kingdom","Russia",0.19923029161316
+"15","United States","Russia",-0.490910114365883
+"16","China","United.Kingdom",-0.222233672757712
+"17","France","United.Kingdom",0.813980190430494
+"18","Russia","United.Kingdom",0.19923029161316
+"19","United Kingdom","United.Kingdom",1
+"20","United States","United.Kingdom",-0.223713527747764
+"21","China","United.States",-0.345957356491416
+"22","France","United.States",-0.165152795016917
+"23","Russia","United.States",-0.490910114365883
+"24","United Kingdom","United.States",-0.223713527747764
+"25","United States","United.States",1
