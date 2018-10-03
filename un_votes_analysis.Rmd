@@ -1,0 +1,190 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+This is an R Notebook of a case study based on the dataset from the "Exploratory Data Analysis in R: Case Study"@Datacamp.
+
+In this R Notebook, I would like to do some basic analysis on United Nations Security Council veto power which is referred to the power of the permanent members of the UN Security Council (China, France, Russia, United Kingdom, and the United States)
+https://en.wikipedia.org/wiki/United_Nations_Security_Council_veto_power
+
+Therefore, this R Notebook focuses on the vote decisions of the 5 countries above. This R Notebook aims to produce datasets for the virtualization on Tableau. I believe that the original dataset should be under an R package "unvotes", or you could also find it under the course of the Datacamp.
+
+
+```{r}
+# load libraries
+library(dplyr)
+library(broom)
+library(tidyr)
+library(ggplot2)
+library(countrycode)
+```
+```{r}
+# load dataset
+# In here, I loaded 2 dataset into workspace one is called votes and other is called descriptions.
+# The votes dataset contains the corresponding type of vote for each country with given agenda id and session.
+# The descriptions dataset contains the description of the committees with given agenda id and session
+
+votes <- readRDS("votes.rds")
+descriptions <- readRDS('descriptions.rds')
+head(votes)
+head(descriptions)
+```
+
+Data transformation and Extraction:
+(1) Combining two dataset into one dataframe for simplicity.
+(2) Convert the country code into the country name
+(3) Extraction interested data (votes of the permanent members, and votes which matter)
+
+The following type of vote represents the integers in the vote column:
+1 : yes
+2 : abstain
+3 : no
+8 : not present
+9 : not a member
+
+Topics of the dataset are represented by two-letter code at the column.
+
+1. me: Palestinian conflict
+2. nu: Nuclear weapons and nuclear material
+3. di: Arms control and disarmament
+4. hr: Human rights
+5. co: Colonialism
+6. ec: Economic development
+
+
+
+```{r}
+# join two dataset by the rcid and session
+
+df <- votes %>% inner_join(descriptions, by=c('rcid', 'session'))
+head(df)
+```
+
+```{r}
+df <- df %>% 
+        mutate(country = countrycode(ccode, "cown", "country.name")) %>%
+        filter(country %in% c('United States', 'United Kingdom', 'China', 'Russia', 'France'), 
+               vote <=3)
+
+# gather topics into a key value pair 
+df <- df %>% 
+        gather(topic, has_topic, me:ec) %>% 
+        filter(has_topic == 1)
+```
+
+
+```{r}
+# convert two letter code into the topic name
+df <- df %>%
+   mutate(topic = recode(topic,
+                        me = "Palestinian conflict",
+                        nu = "Nuclear weapons and nuclear material",
+                        di = "Arms control and disarmament",
+                        hr = "Human rights",
+                        co = "Colonialism",
+                        ec = "Economic development"))
+
+```
+
+
+```{r}
+# Drop unnecessary columns
+df <- df[, -which(colnames(df) %in% c('unres', 'has_topic', 'ccode'))]
+```
+
+
+```{r}
+# cast votes of each country into a seperated column, so that we can observe which country has performed the veto power
+df <- df %>% spread(country, vote)
+head(df)
+```
+
+Noted that there are some missing data, probably a result from the data cleaning process (removed all not present votes and not a member votes). In either case, both of the votes have no impact to the veto power. For simplicity, I assume the missing votes are equaled to abstain vote.
+
+```{r}
+df <- df %>% replace(is.na(.), 2)
+head(df)
+```
+
+Consensus:
+
+Assume there are three possible scenarios could happen. The first one is all permanent members are having positive consensus (with 0 'no' votes). The second one is they are having a negative consensus (with more than 1 'no' votes). The last one is among all permanent members, the number of 'no' vote is precisely equal to 1. it means a country was using its veto power to reject the decision.
+
+
+```{r}
+df <- df %>% group_by(rcid, session) %>%
+        mutate(consensus = sum(c(China, France, Russia, `United Kingdom`, `United States`) == 3)) %>%
+        ungroup() %>%
+        mutate(consensus = case_when(consensus == 0 ~ 'postive',
+                                     consensus > 1 ~ 'negative',
+                                     consensus == 1 ~ 'veto'))
+```
+```{r}
+
+veto <- df %>% filter(consensus == 'veto') %>% 
+           gather(country, vote, China:`United States`) %>%
+           mutate(veto_by = ifelse(vote==3, country, NA)) %>%
+           select(rcid, session, veto_by) %>%
+           drop_na()
+
+df <- left_join(df, veto, by=c('rcid', 'session'))
+
+# adding a year column into the dataframe
+df <- df %>% mutate(year = as.numeric(format(as.Date(date, format="%Y-%m-%d"), "%Y")))
+ 
+```
+
+Right now we have the data for the analysis. 
+Let say we want to know the trend of voting 'no' among these permanent members, and which topic they like to vote 'no'.
+
+```{r}
+# calculate the trend of voting 'no'
+
+no_by_year <- df %>% group_by(year) %>%
+                  summarise(China = mean(China == 3),
+                            France = mean(France == 3),
+                            Russia = mean(Russia == 3),
+                            `United Kingdom` = mean(`United Kingdom` == 3),
+                            `United States` = mean(`United States` == 3)) %>%
+                  gather(country, percentage_no, China:`United States`)
+
+# take a look at the trend
+ggplot(no_by_year, aes(x=year, y=percentage_no)) + 
+  geom_line() + 
+  geom_smooth() +
+  facet_wrap(~country)
+
+```
+
+Lets take a look on the 'no' related to topic
+```{r, fig.width = 12, fig.height = 8}
+
+no_by_topic <- df %>% 
+                  group_by(year, topic) %>%
+                  summarise(China = mean(China == 3),
+                  France = mean(France == 3),
+                  Russia = mean(Russia == 3),
+                  `United Kingdom` = mean(`United Kingdom` == 3),
+                  `United States` = mean(`United States` == 3)) %>%
+                  gather(country, percentage_no, China:`United States`)
+
+ggplot(no_by_topic, aes(x=year, y=percentage_no, color=topic)) + 
+  #geom_line() + 
+  geom_smooth(se=F) +
+  facet_wrap(~country)
+
+```
+
+From the graph above we can see that the UK and France have a similar pattern of voting 'no', especially in the topic of Nuclear weapons and nuclear material. 
+China has a relatively low percentage of voting 'no' across all topics.
+The US has a strong increasing trend of voting 'no' after the 1970's.
+
+Output CSV files for tableau:
+For simplicity, I outputted those CSV files because I installed the tableau on my laptop (Windows), but this R Notebook was created on my desktop computer which is running on Ubuntu (unfortunately there is no Linux version of tableau public)
+
+```{r}
+write.csv(df, file='df.csv')
+write.csv(no_by_topic, file='no_by_topic.csv')
+```
+
