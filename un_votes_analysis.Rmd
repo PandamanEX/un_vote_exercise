@@ -205,13 +205,7 @@ veto_by_year_topic <- df %>% filter(consensus == 'veto') %>%
                                   UK = sum(veto_by == 'United Kingdom'),
                                   US = sum(veto_by == 'United States')) %>%
                         ungroup() %>%
-                        mutate(cum_China = cumsum(China), 
-                               cum_France = cumsum(France),
-                               cum_Russia = cumsum(Russia),
-                               cum_UK = cumsum(UK),
-                               cum_US = cumsum(US)) %>%
-                        gather(country, veto_num, China:US) %>%
-                        gather(cum_country, veto_cum, cum_China:cum_US)
+                        gather(country, veto_num, China:US)
 
 ```
 
