@@ -209,7 +209,9 @@ veto_by_year_topic <- df %>% filter(consensus == 'veto') %>%
                                cum_France = cumsum(France),
                                cum_Russia = cumsum(Russia),
                                cum_UK = cumsum(UK),
-                               cum_US = cumsum(US))
+                               cum_US = cumsum(US)) %>%
+                        gather(country, veto_num, China:US) %>%
+                        gather(cum_country, veto_cum, cum_China:cum_US)
 
 ```
 
@@ -223,6 +225,7 @@ For simplicity, I outputted those CSV files because I installed the tableau on m
 write.csv(df, file='df.csv')
 write.csv(no_by_topic, file='no_by_topic.csv')
 write.csv(cor_mat, file='cor_mat.csv')
+write.csv(veto_by_year_topic, file='veto.csv')
 ```
 
 
