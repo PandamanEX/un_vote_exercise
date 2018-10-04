@@ -188,9 +188,33 @@ Correlation Matrix
 Lets produce the correlation matrix of the permanent members.
 ```{r}
 cor_mat <- tidy(cor(no_by_year_country[, c('China', 'France', 'Russia', 'United Kingdom', 'United States')]))
-cor_mat %>% gather(country2, correlation, China:United.States)
+cor_mat <- cor_mat %>% gather(country2, correlation, China:United.States)
 
 ```
+
+
+Now we want to see among all veto votes, whcih country like to give the most veto vote, and which topic is the most likely to get a veto vote.
+
+```{r}
+
+veto_by_year_topic <- df %>% filter(consensus == 'veto') %>%
+                        group_by(year, topic) %>%
+                        summarise(China = sum(veto_by == 'China'),
+                                  France = sum(veto_by == 'France'),
+                                  Russia = sum(veto_by == 'Russia'),
+                                  UK = sum(veto_by == 'United Kingdom'),
+                                  US = sum(veto_by == 'United States')) %>%
+                        ungroup() %>%
+                        mutate(cum_China = cumsum(China), 
+                               cum_France = cumsum(France),
+                               cum_Russia = cumsum(Russia),
+                               cum_UK = cumsum(UK),
+                               cum_US = cumsum(US))
+
+```
+
+
+
 
 Output CSV files for tableau:
 For simplicity, I outputted those CSV files because I installed the tableau on my laptop (Windows), but this R Notebook was created on my desktop computer which is running on Ubuntu (unfortunately there is no Linux version of tableau public)

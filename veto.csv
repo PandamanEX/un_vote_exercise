@@ -1,0 +1,136 @@
+"","year","topic","China","France","Russia","UK","US","cum_China","cum_France","cum_Russia","cum_UK","cum_US"
+"1",1947,"Colonialism",0,0,3,1,0,0,0,3,1,0
+"2",1947,"Human rights",0,0,1,0,0,0,0,4,1,0
+"3",1949,"Colonialism",0,0,2,2,0,0,0,6,3,0
+"4",1949,"Economic development",0,0,0,0,1,0,0,6,3,1
+"5",1949,"Human rights",0,0,1,0,0,0,0,7,3,1
+"6",1949,"Palestinian conflict",0,0,1,0,0,0,0,8,3,1
+"7",1952,"Colonialism",0,0,1,0,0,0,0,9,3,1
+"8",1953,"Colonialism",0,0,1,2,1,0,0,10,5,2
+"9",1953,"Human rights",0,0,1,0,0,0,0,11,5,2
+"10",1955,"Colonialism",0,0,2,1,0,0,0,13,6,2
+"11",1957,"Arms control and disarmament",0,0,1,0,0,0,0,14,6,2
+"12",1957,"Colonialism",0,0,3,0,0,0,0,17,6,2
+"13",1957,"Economic development",0,0,1,0,0,0,0,18,6,2
+"14",1959,"Colonialism",0,1,3,2,0,0,1,21,8,2
+"15",1959,"Economic development",0,0,3,0,0,0,1,24,8,2
+"16",1959,"Human rights",0,0,1,1,0,0,1,25,9,2
+"17",1959,"Nuclear weapons and nuclear material",0,1,0,0,0,0,2,25,9,2
+"18",1961,"Colonialism",0,0,4,0,0,0,2,29,9,2
+"19",1961,"Economic development",0,3,1,0,0,0,5,30,9,2
+"20",1961,"Nuclear weapons and nuclear material",0,0,2,0,0,0,5,32,9,2
+"21",1962,"Colonialism",0,0,1,0,0,0,5,33,9,2
+"22",1965,"Colonialism",0,0,2,0,1,0,5,35,9,3
+"23",1965,"Human rights",0,0,1,0,0,0,5,36,9,3
+"24",1967,"Colonialism",0,0,0,1,0,0,5,36,10,3
+"25",1969,"Arms control and disarmament",0,0,0,0,1,0,5,36,10,4
+"26",1969,"Colonialism",0,1,0,1,1,0,6,36,11,5
+"27",1969,"Human rights",0,0,2,0,0,0,6,38,11,5
+"28",1971,"Colonialism",0,0,2,1,0,0,6,40,12,5
+"29",1971,"Economic development",0,0,3,0,1,0,6,43,12,6
+"30",1971,"Human rights",0,0,0,1,1,0,6,43,13,7
+"31",1971,"Palestinian conflict",0,0,0,0,1,0,6,43,13,8
+"32",1973,"Colonialism",0,0,0,0,2,0,6,43,13,10
+"33",1973,"Economic development",1,0,0,1,0,1,6,43,14,10
+"34",1973,"Human rights",0,0,1,0,0,1,6,44,14,10
+"35",1973,"Palestinian conflict",0,0,0,0,1,1,6,44,14,11
+"36",1975,"Arms control and disarmament",0,0,1,0,1,1,6,45,14,12
+"37",1975,"Colonialism",0,1,0,0,2,1,7,45,14,14
+"38",1975,"Economic development",0,0,1,0,0,1,7,46,14,14
+"39",1975,"Human rights",0,0,0,0,2,1,7,46,14,16
+"40",1975,"Palestinian conflict",0,0,0,0,1,1,7,46,14,17
+"41",1977,"Arms control and disarmament",2,0,0,0,0,3,7,46,14,17
+"42",1977,"Colonialism",0,0,0,0,1,3,7,46,14,18
+"43",1979,"Arms control and disarmament",0,0,1,0,0,3,7,47,14,18
+"44",1979,"Colonialism",0,1,0,0,3,3,8,47,14,21
+"45",1979,"Human rights",0,0,2,0,1,3,8,49,14,22
+"46",1979,"Palestinian conflict",0,0,4,0,2,3,8,53,14,24
+"47",1981,"Arms control and disarmament",0,0,1,0,2,3,8,54,14,26
+"48",1981,"Colonialism",0,1,1,0,1,3,9,55,14,27
+"49",1981,"Economic development",0,0,1,0,1,3,9,56,14,28
+"50",1981,"Human rights",0,0,1,0,6,3,9,57,14,34
+"51",1981,"Nuclear weapons and nuclear material",0,0,1,0,0,3,9,58,14,34
+"52",1981,"Palestinian conflict",0,0,1,0,8,3,9,59,14,42
+"53",1983,"Arms control and disarmament",0,0,1,0,3,3,9,60,14,45
+"54",1983,"Colonialism",0,1,0,0,1,3,10,60,14,46
+"55",1983,"Economic development",0,0,0,0,2,3,10,60,14,48
+"56",1983,"Human rights",0,0,0,0,8,3,10,60,14,56
+"57",1983,"Palestinian conflict",0,0,1,0,9,3,10,61,14,65
+"58",1985,"Arms control and disarmament",0,0,3,0,3,3,10,64,14,68
+"59",1985,"Colonialism",0,1,0,0,0,3,11,64,14,68
+"60",1985,"Economic development",0,0,0,0,5,3,11,64,14,73
+"61",1985,"Human rights",0,0,1,0,4,3,11,65,14,77
+"62",1985,"Nuclear weapons and nuclear material",0,1,0,0,1,3,12,65,14,78
+"63",1985,"Palestinian conflict",0,0,2,0,11,3,12,67,14,89
+"64",1987,"Arms control and disarmament",0,0,0,0,6,3,12,67,14,95
+"65",1987,"Colonialism",0,1,0,0,0,3,13,67,14,95
+"66",1987,"Economic development",0,0,0,0,4,3,13,67,14,99
+"67",1987,"Human rights",0,0,1,0,3,3,13,68,14,102
+"68",1987,"Nuclear weapons and nuclear material",0,2,0,0,1,3,15,68,14,103
+"69",1987,"Palestinian conflict",0,0,0,0,12,3,15,68,14,115
+"70",1989,"Arms control and disarmament",0,0,0,0,4,3,15,68,14,119
+"71",1989,"Colonialism",0,1,0,0,0,3,16,68,14,119
+"72",1989,"Economic development",0,0,0,0,6,3,16,68,14,125
+"73",1989,"Human rights",0,0,0,0,4,3,16,68,14,129
+"74",1989,"Nuclear weapons and nuclear material",0,1,0,0,0,3,17,68,14,129
+"75",1989,"Palestinian conflict",0,0,0,0,11,3,17,68,14,140
+"76",1991,"Colonialism",0,1,0,0,0,3,18,68,14,140
+"77",1991,"Economic development",0,0,0,0,1,3,18,68,14,141
+"78",1991,"Human rights",0,0,0,0,2,3,18,68,14,143
+"79",1991,"Palestinian conflict",0,0,0,0,11,3,18,68,14,154
+"80",1993,"Colonialism",0,1,0,0,0,3,19,68,14,154
+"81",1993,"Economic development",0,0,0,0,2,3,19,68,14,156
+"82",1993,"Human rights",3,0,0,0,2,6,19,68,14,158
+"83",1993,"Palestinian conflict",0,0,0,0,9,6,19,68,14,167
+"84",1995,"Arms control and disarmament",0,0,0,0,1,6,19,68,14,168
+"85",1995,"Economic development",0,0,0,0,1,6,19,68,14,169
+"86",1995,"Human rights",4,0,2,0,1,10,19,70,14,170
+"87",1995,"Palestinian conflict",0,0,0,0,7,10,19,70,14,177
+"88",1996,"Palestinian conflict",0,0,0,0,1,10,19,70,14,178
+"89",1997,"Economic development",0,0,0,0,2,10,19,70,14,180
+"90",1997,"Human rights",3,0,1,0,2,13,19,71,14,182
+"91",1997,"Palestinian conflict",0,0,0,0,9,13,19,71,14,191
+"92",1998,"Palestinian conflict",0,0,0,0,2,13,19,71,14,193
+"93",1999,"Arms control and disarmament",0,0,0,0,1,13,19,71,14,194
+"94",1999,"Economic development",0,0,0,0,3,13,19,71,14,197
+"95",1999,"Human rights",3,0,2,0,2,16,19,73,14,199
+"96",1999,"Palestinian conflict",0,0,0,0,8,16,19,73,14,207
+"97",2000,"Palestinian conflict",0,0,0,0,1,16,19,73,14,208
+"98",2001,"Arms control and disarmament",0,0,0,0,1,16,19,73,14,209
+"99",2001,"Economic development",0,0,0,0,2,16,19,73,14,211
+"100",2001,"Human rights",1,0,0,0,2,17,19,73,14,213
+"101",2001,"Nuclear weapons and nuclear material",0,0,0,0,1,17,19,73,14,214
+"102",2001,"Palestinian conflict",0,0,0,0,9,17,19,73,14,223
+"103",2002,"Human rights",0,0,0,0,1,17,19,73,14,224
+"104",2003,"Arms control and disarmament",0,0,0,0,2,17,19,73,14,226
+"105",2003,"Economic development",0,0,0,0,3,17,19,73,14,229
+"106",2003,"Human rights",1,0,0,0,1,18,19,73,14,230
+"107",2003,"Nuclear weapons and nuclear material",0,0,0,0,2,18,19,73,14,232
+"108",2003,"Palestinian conflict",0,0,0,0,11,18,19,73,14,243
+"109",2004,"Palestinian conflict",0,0,0,0,1,18,19,73,14,244
+"110",2005,"Arms control and disarmament",0,0,0,0,1,18,19,73,14,245
+"111",2005,"Economic development",0,0,0,0,5,18,19,73,14,250
+"112",2005,"Human rights",1,0,0,0,2,19,19,73,14,252
+"113",2005,"Nuclear weapons and nuclear material",0,0,0,0,2,19,19,73,14,254
+"114",2005,"Palestinian conflict",0,0,0,0,9,19,19,73,14,263
+"115",2006,"Human rights",0,0,0,0,1,19,19,73,14,264
+"116",2006,"Palestinian conflict",0,0,0,0,1,19,19,73,14,265
+"117",2007,"Arms control and disarmament",0,0,0,0,3,19,19,73,14,268
+"118",2007,"Colonialism",0,0,0,2,0,19,19,73,16,268
+"119",2007,"Economic development",0,0,0,0,4,19,19,73,16,272
+"120",2007,"Human rights",0,0,0,0,5,19,19,73,16,277
+"121",2007,"Nuclear weapons and nuclear material",0,0,0,0,2,19,19,73,16,279
+"122",2007,"Palestinian conflict",0,0,0,0,9,19,19,73,16,288
+"123",2008,"Economic development",0,0,1,0,1,19,19,74,16,289
+"124",2009,"Economic development",0,0,0,0,2,19,19,74,16,291
+"125",2009,"Human rights",0,0,0,0,2,19,19,74,16,293
+"126",2009,"Palestinian conflict",0,0,0,0,8,19,19,74,16,301
+"127",2010,"Economic development",0,0,1,0,0,19,19,75,16,301
+"128",2010,"Human rights",0,0,0,0,1,19,19,75,16,302
+"129",2010,"Palestinian conflict",0,0,0,0,1,19,19,75,16,303
+"130",2011,"Economic development",0,0,0,0,2,19,19,75,16,305
+"131",2011,"Palestinian conflict",0,0,0,0,8,19,19,75,16,313
+"132",2013,"Economic development",0,0,0,0,2,19,19,75,16,315
+"133",2013,"Human rights",0,0,0,0,1,19,19,75,16,316
+"134",2013,"Palestinian conflict",0,0,0,0,9,19,19,75,16,325
+"135",2014,"Human rights",0,0,1,0,0,19,19,76,16,325
