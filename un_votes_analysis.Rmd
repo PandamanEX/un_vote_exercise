@@ -119,7 +119,22 @@ df <- df %>% group_by(rcid, session) %>%
         mutate(consensus = case_when(consensus == 0 ~ 'postive',
                                      consensus > 1 ~ 'negative',
                                      consensus == 1 ~ 'veto'))
+
+consensus_by_year <- df %>% group_by(year) %>%
+                              summarise(total=n(),
+                                        positive = sum(consensus == 'postive') / n(),
+                                        negative = sum(consensus == 'negative') / n(),
+                                        veto = sum(consensus == 'veto') / n())
+
+consensus_by_topic <- df %>% group_by(topic) %>%
+                        summarise(total=n(),
+                        positive = sum(consensus == 'postive') / n(),
+                        negative = sum(consensus == 'negative') / n(),
+                        veto = sum(consensus == 'veto') / n())
+
 ```
+
+
 ```{r}
 
 veto <- df %>% filter(consensus == 'veto') %>% 
@@ -220,6 +235,8 @@ write.csv(df, file='df.csv')
 write.csv(no_by_topic, file='no_by_topic.csv')
 write.csv(cor_mat, file='cor_mat.csv')
 write.csv(veto_by_year_topic, file='veto.csv')
+write.csv(consensus_by_year, file='consensus_by_year.csv')
+write.csv(consensus_by_topic, file='consensus_by_topic.csv')
 ```
 
 
